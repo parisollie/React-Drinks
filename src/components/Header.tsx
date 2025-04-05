@@ -20,7 +20,7 @@ export default function Header() {
     const fetchCategories = useAppStore((state) => state.fetchCategories)
     //Paso 3.0
     const categories = useAppStore((state) => state.categories)
-    //Vid 322
+    //Paso 3.12
     const searchRecipes = useAppStore((state) => state.searchRecipes)
     //Vid 344
     const showNotification = useAppStore((state) => state.showNotification)
@@ -38,7 +38,7 @@ export default function Header() {
         })
     }
 
-    //Vid 322
+    //Paso 3.8
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         //Validar
@@ -50,7 +50,8 @@ export default function Header() {
             })
             return
         }
-        // Vid 322 Consultar las recetas
+        //Paso 3.9, Consultar las recetas
+        //paso 3.15, le ponemos el (searchFilters)
         searchRecipes(searchFilters)
     }
 
@@ -90,7 +91,7 @@ export default function Header() {
                     <form
                         //Paso 2.0, toma un width de 1 de dos columnas,tamañp para telefono y tablet
                         className='md:w-1/2 2xl:w-1/3 bg-orange-400 my-32 p-10 rounded-lg shadow space-y-6'
-                        //Vid 322
+                        //V-322,paso 3.7
                         onSubmit={handleSubmit}
                     >
                         {/**Paso 1.24 */}

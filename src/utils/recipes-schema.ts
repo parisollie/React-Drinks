@@ -8,18 +8,18 @@ export const CategoriesAPIResponseSchema = z.object({
         })
     )
 })
-//Vid 322
+//Paso 3.13
 export const SearchFilterSchema = z.object({
     ingredient: z.string(),
     category: z.string()
 })
-//Vid 324
+//V-324,paso 3.20
 export const DrinkAPIResponse = z.object({
     idDrink: z.string(),
     strDrink: z.string(),
     strDrinkThumb: z.string()
 })
-//Vid 324 
+//Paso 3.21
 export const DrinksAPIResponse = z.object({
     drinks: z.array(DrinkAPIResponse)
 })

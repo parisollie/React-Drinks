@@ -12,12 +12,12 @@ export async function getCategories() {
         return result.data
     }
 }
-
+//V-323,paso 3.17 y toma los filtros
 export async function getRecipes(filters: SearchFilter) {
-    //Vid 323
+    //Paso 3.19,url dinamica para categoria e ingrediente
     const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${filters.category}&i=${filters.ingredient}`
     const { data } = await axios(url)
-    //Vid 324
+    //Paso 3.22
     const result = DrinksAPIResponse.safeParse(data)
     if (result.success) {
         return result.data

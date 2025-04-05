@@ -7,6 +7,7 @@ import { FavoritesSliceType } from "./favoritesSlice"
 export type RecipesSliceType = {
     //Paso 2.1 y paso 2.24, solo cambia el nombre y ya
     categories: Categories
+    //Paso 3.24
     drinks: Drinks
     //Vid 329
     selectedRecipe: Recipe
@@ -14,7 +15,7 @@ export type RecipesSliceType = {
     modal: boolean
     //Paso 2.14
     fetchCategories: () => Promise<void>
-    //Vid 322
+    //Paso 3.11?,esta mal ordenado
     searchRecipes: (searchFilters: SearchFilter) => Promise<void>
     //Vid 327
     selectRecipe: (id: Drink['idDrink']) => Promise<void>
@@ -33,7 +34,7 @@ export const createRecipesSlice: StateCreator<RecipesSliceType & FavoritesSliceT
     categories: {
         drinks: []
     },
-    //Vid 324
+    //Paso 4.0
     drinks: {
         drinks: []
     },
@@ -50,10 +51,13 @@ export const createRecipesSlice: StateCreator<RecipesSliceType & FavoritesSliceT
             categories
         })
     },
-    //Vid 322
+    //paso 3.10
+    //Paso 3.16, le ponemos el filters
     searchRecipes: async (filters) => {
+        //paso 3.18, le ponemos getRecipes y le ponemos los filtros 
+        // paso 3.23
         const drinks = await getRecipes(filters)
-        //Vid 324
+        //Paso 3.1?
         set({
             drinks
         })
