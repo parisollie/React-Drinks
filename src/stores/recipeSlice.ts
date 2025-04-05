@@ -9,17 +9,18 @@ export type RecipesSliceType = {
     categories: Categories
     //Paso 3.24
     drinks: Drinks
-    //Vid 329
+    //Paso 4.24
     selectedRecipe: Recipe
-    //Vid 330
+    //Paso 5.4
     modal: boolean
     //Paso 2.14
     fetchCategories: () => Promise<void>
     //Paso 3.11?,esta mal ordenado
     searchRecipes: (searchFilters: SearchFilter) => Promise<void>
-    //Vid 327
+    //V-327,Paso 4.18, 
+    // Paso 4.22, toma un id
     selectRecipe: (id: Drink['idDrink']) => Promise<void>
-    //Vid 330
+    //Paso 5.8
     closeModal: () => void
 }
 
@@ -38,8 +39,9 @@ export const createRecipesSlice: StateCreator<RecipesSliceType & FavoritesSliceT
     drinks: {
         drinks: []
     },
-    //Vid 329, confia en mi ,se lo mandare todo (as Recipe)
+    //paso 5.0, confia en mi ,se lo mandare todo (as Recipe)
     selectedRecipe: {} as Recipe,
+    //Paso 5.5
     modal: false,
 
     //Paso 2.15
@@ -62,21 +64,22 @@ export const createRecipesSlice: StateCreator<RecipesSliceType & FavoritesSliceT
             drinks
         })
     },
-    //Vid 327
+    //paso 4.19
+    //Paso 4.23, toma un id
     selectRecipe: async (id) => {
-        //Vid 328
+        //Paso 3.24
         const selectedRecipe = await getRecipeById(id)
         set({
-            //Vid 329
+            //Paso 5.1
             selectedRecipe,
-            //Vid 330
+            //Paso 5.7
             modal: true
         })
     },
-    //Vid 330
+    //Paso 5.9
     closeModal: () => {
         set({
-            //Vid 330
+            //Paso 5.10
             modal: false,
             selectedRecipe: {} as Recipe
         })

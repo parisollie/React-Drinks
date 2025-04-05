@@ -7,7 +7,7 @@ export type Categories = z.infer<typeof CategoriesAPIResponseSchema>
 export type SearchFilter = z.infer<typeof SearchFilterSchema>
 //Paso 3.25
 export type Drinks = z.infer<typeof DrinksAPIResponse>
-//Vid 325
+//Paso 4.7
 export type Drink = z.infer<typeof DrinkAPIResponse>
-//Vid 329
+//Paso 4.25
 export type Recipe = z.infer<typeof RecipeAPIResponseSchema>

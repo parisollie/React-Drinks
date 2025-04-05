@@ -29,7 +29,7 @@ export default function Layout() {
          */}
         <Outlet />
       </main>
-
+      {/**Paso 5.3, ponemos el modal */}
       <Modal />
 
       <Notification />

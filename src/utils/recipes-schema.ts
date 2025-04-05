@@ -24,7 +24,7 @@ export const DrinksAPIResponse = z.object({
     drinks: z.array(DrinkAPIResponse)
 })
 
-//Vid 328
+//Paso 3.25
 export const RecipeAPIResponseSchema = z.object({
     idDrink: z.string(),
     strDrink: z.string(),
