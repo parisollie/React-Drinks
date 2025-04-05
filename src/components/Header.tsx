@@ -3,17 +3,19 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { useAppStore } from '../stores/useAppStore'
 
 
-//Vid 308
+//V-308,paso 1.10, creamos el header
 export default function Header() {
     //Vid 321 
     const [searchFilters, setSearchFilters] = useState({
         ingredient: '',
         category: ''
     })
-    //Vid 312 
+    //V-312,paso 1.21,ponemos useLoction para detectar la pagina actual
     const { pathname } = useLocation()
+    //console.log(pathname)
+
     //Vid 313,queremos que se ejecute cada vez que la pagina cambie ,la / es la pagina de inicio
-    const isHome = useMemo(() => pathname === '/' , [pathname])
+    const isHome = useMemo(() => pathname === '/', [pathname])
     //Vid 317
     const fetchCategories = useAppStore((state) => state.fetchCategories)
     //Vid 318
@@ -22,7 +24,7 @@ export default function Header() {
     const searchRecipes = useAppStore((state) => state.searchRecipes)
     //Vid 344
     const showNotification = useAppStore((state) => state.showNotification)
- 
+
     //Vid 317
     useEffect(() => {
         fetchCategories()
@@ -32,7 +34,7 @@ export default function Header() {
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         setSearchFilters({
             ...searchFilters,
-            [e.target.name] : e.target.value
+            [e.target.name]: e.target.value
         })
     }
 
@@ -40,7 +42,7 @@ export default function Header() {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         //Validar
-        if(Object.values(searchFilters).includes('')) {
+        if (Object.values(searchFilters).includes('')) {
             //Vid 344
             showNotification({
                 text: 'Todos los campos son obligatorios',
@@ -53,39 +55,45 @@ export default function Header() {
     }
 
     return (
+
         //Vid 314,para saber en que pagina estamos el damos el back ground
-        <header className={ isHome ? 'bg-header bg-center bg-cover' : 'bg-slate-800' }>
+        <header className={isHome ? 'bg-header bg-center bg-cover' : 'bg-slate-800'}>
+            {/** Paso 1.11,ponemos la estructura del header */}
             <div className="mx-auto container px-5 py-16">
                 <div className="flex justify-between items-center">
                     <div>
                         <img className="w-32" src="/logo.svg" alt="logotipo" />
                     </div>
 
+                    {/**Paso 1.19,separamos con 'flex gap-4', lase apracion de INICIO-FAVORITOS */}
                     <nav className='flex gap-4'>
                         <NavLink
-                            //Vid 310,usamos Navlink componente especial ,tiene acceso a un call back 
-                            //prop especial isActive
+                            /*
+                              V-310,paso 1.18,usamos Navlink componente especial , to hacia donde irá*/
                             to="/"
                             className={({ isActive }) =>
                                 isActive ? 'text-orange-500 uppercase font-bold' : 'text-white uppercase font-bold'
-                            }>Inicio</NavLink>
+                            }>Inicio
+                        </NavLink>
+
                         <NavLink
-                            //Vid 311
+                            //V-311,paso 1.20,haremos un callback para poder hacer un resaltado especial
                             to="/favoritos"
                             className={({ isActive }) =>
                                 isActive ? 'text-orange-500 uppercase font-bold' : 'text-white uppercase font-bold'
-                            }>Favoritos</NavLink>
+                            }>Favoritos
+                        </NavLink>
                     </nav>
                 </div>
-                
-                { isHome && (
+
+                {isHome && (
                     <form
                         className='md:w-1/2 2xl:w-1/3 bg-orange-400 my-32 p-10 rounded-lg shadow space-y-6'
                         //Vid 322
                         onSubmit={handleSubmit}
                     >
                         <div className='space-y-4'>
-                            <label 
+                            <label
                                 htmlFor="ingredient"
                                 className='block text-white uppercase font-extrabold text-lg'
                             >Nombre o Ingredientes</label>
@@ -102,7 +110,7 @@ export default function Header() {
                             />
                         </div>
                         <div className='space-y-4'>
-                            <label 
+                            <label
                                 htmlFor="category"
                                 className='block text-white uppercase font-extrabold text-lg'
                             >Categoría</label>
@@ -115,10 +123,10 @@ export default function Header() {
                                 value={searchFilters.category}
                             >
                                 <option value="">-- Seleccione --</option>
-                                
-                                {categories.drinks.map( category => (
-                                    <option 
-                                    //Vid 320
+
+                                {categories.drinks.map(category => (
+                                    <option
+                                        //Vid 320
                                         value={category.strCategory}
                                         key={category.strCategory}
                                     >{category.strCategory}</option>

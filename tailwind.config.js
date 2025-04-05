@@ -1,4 +1,6 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} 
+ * V-305,paso 1.0 Instalamos Tailwind
+*/
 export default {
   content: [
     "./index.html",
@@ -6,9 +8,9 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage : {
+      backgroundImage: {
         //Vid 314 el back ground
-        "header" : "url('/bg.jpg')"
+        "header": "url('/bg.jpg')"
       }
     },
   },
