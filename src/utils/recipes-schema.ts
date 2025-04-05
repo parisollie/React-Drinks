@@ -1,5 +1,6 @@
-import { z } from 'zod'
+import { z } from 'zod'
 
+//V-318,Paso 2.18
 export const CategoriesAPIResponseSchema = z.object({
     drinks: z.array(
         z.object({

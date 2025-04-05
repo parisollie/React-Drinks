@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        //Vid 314 el back ground
+        //V-314 el back ground,paso 2.4 ponemos la imagen
         "header": "url('/bg.jpg')"
       }
     },

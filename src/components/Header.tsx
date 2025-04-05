@@ -5,7 +5,7 @@ import { useAppStore } from '../stores/useAppStore'
 
 //V-308,paso 1.10, creamos el header
 export default function Header() {
-    //Vid 321 
+    //V-321,paso 3.3 
     const [searchFilters, setSearchFilters] = useState({
         ingredient: '',
         category: ''
@@ -14,23 +14,23 @@ export default function Header() {
     const { pathname } = useLocation()
     //console.log(pathname)
 
-    //Vid 313,queremos que se ejecute cada vez que la pagina cambie ,la / es la pagina de inicio
+    //V-313,paso 1.22 queremos que se ejecute cada vez que la página cambie,la / es la página de inicio
     const isHome = useMemo(() => pathname === '/', [pathname])
-    //Vid 317
+    //Paso 2.16
     const fetchCategories = useAppStore((state) => state.fetchCategories)
-    //Vid 318
+    //Paso 3.0
     const categories = useAppStore((state) => state.categories)
     //Vid 322
     const searchRecipes = useAppStore((state) => state.searchRecipes)
     //Vid 344
     const showNotification = useAppStore((state) => state.showNotification)
 
-    //Vid 317
+    //paso 2.17,cuando este listo queremos esa funcion
     useEffect(() => {
         fetchCategories()
     }, [])
 
-    //Vid 321 
+    //paso 3.4 
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
         setSearchFilters({
             ...searchFilters,
@@ -56,7 +56,7 @@ export default function Header() {
 
     return (
 
-        //Vid 314,para saber en que pagina estamos el damos el back ground
+        //Paso 2.5,le ponemos el bg-header y si esta en clase de inicio pone esto sino agrega sto
         <header className={isHome ? 'bg-header bg-center bg-cover' : 'bg-slate-800'}>
             {/** Paso 1.11,ponemos la estructura del header */}
             <div className="mx-auto container px-5 py-16">
@@ -85,40 +85,48 @@ export default function Header() {
                         </NavLink>
                     </nav>
                 </div>
-
+                {/**Paso 1.23, ponemos si la página isHome */}
                 {isHome && (
                     <form
+                        //Paso 2.0, toma un width de 1 de dos columnas,tamañp para telefono y tablet
                         className='md:w-1/2 2xl:w-1/3 bg-orange-400 my-32 p-10 rounded-lg shadow space-y-6'
                         //Vid 322
                         onSubmit={handleSubmit}
                     >
+                        {/**Paso 1.24 */}
                         <div className='space-y-4'>
                             <label
                                 htmlFor="ingredient"
                                 className='block text-white uppercase font-extrabold text-lg'
-                            >Nombre o Ingredientes</label>
+                            >Nombre o Ingredientes
+                            </label>
 
                             <input
+                                //Paso 1.25
                                 id='ingredient'
                                 type='text'
                                 name='ingredient'
+                                //No resalta nada con esto
                                 className='p-3 w-full rounded-lg focus:outline-none'
                                 placeholder='Nombre o Ingrediente. Ej. Vodka, Tequila, Café'
-                                //Vid 321
+                                //Paso 3.5
                                 onChange={handleChange}
                                 value={searchFilters.ingredient}
                             />
                         </div>
+                        {/**Paso 2.1 */}
                         <div className='space-y-4'>
                             <label
                                 htmlFor="category"
                                 className='block text-white uppercase font-extrabold text-lg'
-                            >Categoría</label>
-
+                            >Categoría
+                            </label>
+                            {/**paso 2.2 */}
                             <select
                                 id='category'
                                 name='category'
                                 className='p-3 w-full rounded-lg focus:outline-none'
+                                //Paso 3.6
                                 onChange={handleChange}
                                 value={searchFilters.category}
                             >
@@ -126,13 +134,15 @@ export default function Header() {
 
                                 {categories.drinks.map(category => (
                                     <option
-                                        //Vid 320
+                                        //paso 3.2
                                         value={category.strCategory}
                                         key={category.strCategory}
-                                    >{category.strCategory}</option>
+                                    >{category.strCategory}
+                                    </option>
                                 ))}
                             </select>
                         </div>
+                        {/**Paso 2.3 */}
                         <input
                             type='submit'
                             value='Buscar Recetas'
