@@ -1,50 +1,46 @@
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Alcoholic beverage search engine, recipes, and AI-powered generation -19
 
-Currently, two official plugins are available:
+This application contains the following knowledge:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Tailwind CSS
 
-## Expanding the ESLint configuration
+- Hooks
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Typescript
 
-- Configure the top-level `parserOptions` property like this:
+- Use Memo & Use Callback
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- AI
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- React Router DOM
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Zustand
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- Slices pattern
+
+- Zod
+
+- Storage
+
+## Development
+1. Clone the project
+2. Install dependencies ```npm install```
+3. Generate an env file and add the APIKEY
+4. Run the project ```npm run dev```
+5. Go to the following path ```http://localhost:5173/```
+
+
+The aplication look like this :
+
+<img width="1440" alt="Captura de pantalla 2025-04-06 a la(s) 11 14 14 a m" src="https://github.com/user-attachments/assets/6ed2bba5-2d3c-4a93-968c-985261550b39" />
+<img width="1433" alt="Captura de pantalla 2025-04-06 a la(s) 11 06 31 a m" src="https://github.com/user-attachments/assets/20b8b6b6-0e6e-4496-ac96-b1d6cfd65a10" />
+<img width="1419" alt="Captura de pantalla 2025-04-06 a la(s) 11 05 09 a m" src="https://github.com/user-attachments/assets/7fa4b2c1-4261-4dcc-8364-41a4c9a9e242" />
+<img width="1228" alt="Captura de pantalla 2025-04-06 a la(s) 11 05 39 a m" src="https://github.com/user-attachments/assets/d40e5539-2fa1-4ea2-8a4a-543f5397ff0c" />
+<img width="792" alt="Captura de pantalla 2025-04-06 a la(s) 11 03 54 a m" src="https://github.com/user-attachments/assets/32d4f949-8878-4abd-a9f8-145a1ee05b3e" />
+<img width="1416" alt="Captura de pantalla 2025-04-06 a la(s) 11 06 13 a m" src="https://github.com/user-attachments/assets/bf085cf1-0dda-4bfe-8b7a-500be600a1ce" />
+
+
+
