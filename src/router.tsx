@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './layouts/Layout'
+import GenerateAI from './views/GenerateAI'
 
 //Vid paso 7.29
 const IndexPage = lazy(() => import('./views/IndexPage'))
@@ -15,6 +16,7 @@ export default function AppRouter() {
       <Routes>
         {/**Paso 1.13, mandamos a llamar a nuesto latout */}
         <Route element={<Layout />}>
+
           {/**Paso 1.5,definimos la pagina principal y element la página que se va a cargar */}
           <Route path='/' element={
             //Paso 7.28,ponemos el suspense
@@ -24,11 +26,20 @@ export default function AppRouter() {
             </Suspense>
             //Paso 1.16, le ponemos un index
           } index />
+
           <Route path='/favoritos' element={
             <Suspense fallback="Cargando...">
               <FavoritesPage />
             </Suspense>
           } />
+
+          {/**V-346,paso 8.0 */}
+          <Route path="/generate" element={<GenerateAI />} />
+
+
+
+
+
         </Route>
       </Routes>
     </BrowserRouter>
