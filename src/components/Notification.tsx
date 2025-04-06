@@ -5,10 +5,10 @@ import { Transition } from '@headlessui/react'
 import { useAppStore } from '../stores/useAppStore'
 
 export default function Notification() {
-    //Vid 341 
+    //V-341,paso 7.9 
     const notification = useAppStore((state) => state.notification)
 
-    //Vid 343 
+    //Paso 7.22
     const hideNotification = useAppStore((state) => state.hideNotification)
 
     return (
@@ -31,17 +31,17 @@ export default function Notification() {
                         <div className="p-4">
                             <div className="flex items-start">
                                 <div className="flex-shrink-0">
-                                    
-                                      {notification.error ? (
-                                        //Vid 341
-                                            <XCircleIcon className='h-6 w-6 text-red-400' aria-hidden="true" />
-                                      ) : (
-                                            <CheckCircleIcon className='h-6 w-6 text-green-400' aria-hidden="true" />
-                                      )}
+                                    {/**Paso 7.11 */}
+                                    {notification.error ? (
+                                        <XCircleIcon className='h-6 w-6 text-red-400' aria-hidden="true" />
+                                    ) : (
+                                        <CheckCircleIcon className='h-6 w-6 text-green-400' aria-hidden="true" />
+                                    )}
                                 </div>
                                 <div className="ml-3 w-0 flex-1 pt-0.5">
                                     <p className="text-sm font-medium text-gray-900">Notificación</p>
                                     <p className="mt-1 text-sm text-gray-500">
+                                        {/**Paso 7.10 */}
                                         {notification.text}
                                     </p>
                                 </div>
@@ -49,7 +49,7 @@ export default function Notification() {
                                     <button
                                         type="button"
                                         className="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                                        //Vid 343
+                                        //Paso 7.23
                                         onClick={hideNotification}
                                     >
                                         <span className="sr-only">Cerrar</span>

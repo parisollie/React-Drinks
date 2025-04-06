@@ -12,8 +12,8 @@ import { NotificationSliceType, createNotificationSlice } from './notificationSl
 export const useAppStore = create<RecipesSliceType & FavoritesSliceType & NotificationSliceType>()(devtools((...a) => ({
   //paso 2.8,tomamos una copia de los argumentos
   ...createRecipesSlice(...a),
-  //Vid 334
+  //Paso 6.2
   ...createFavoritesSlice(...a),
-  //Vid 340 
+  //Paso 7.5
   ...createNotificationSlice(...a),
 })))

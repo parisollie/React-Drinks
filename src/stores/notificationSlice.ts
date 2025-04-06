@@ -1,49 +1,49 @@
-import {  StateCreator } from 'zustand'
+import { StateCreator } from 'zustand'
 import { FavoritesSliceType } from './favoritesSlice'
 
-//Vid 340 
+//Paso 7.6 
 type Notification = {
     text: string
     error: boolean
     show: boolean
 }
-//Vid 340
+//V-340,paso 7.4
 export type NotificationSliceType = {
-    //Vid 340 
+    //Paso 7.7
     notification: Notification
-    //Vid 342
+    //V-342,paso 7.12, el payload requiere texto y error
     showNotification: (payload: Pick<Notification, 'text' | 'error'>) => void
-    //Vid 343
+    //Paso 7.20
     hideNotification: () => void
 }
 
-//Vid 342 [], [], no hay parametros adicionales 
-export const createNotificationSlice : StateCreator<NotificationSliceType & FavoritesSliceType, [], [], NotificationSliceType> = (set, get) => ({
+//Paso 7.17 [], [], no hay parametros adicionales 
+export const createNotificationSlice: StateCreator<NotificationSliceType & FavoritesSliceType, [], [], NotificationSliceType> = (set, get) => ({
     notification: {
-        //Vid 340 
+        //Paso 7.8
         text: '',
         error: false,
         show: false
     },
-    //Vid 342
+    //Paso 7.13
     showNotification: (payload) => {
         set({
+            //Paso 7.14
             notification: {
                 text: payload.text,
                 error: payload.error,
                 show: true
             }
         })
-        //Vid 343 
+        //paso 7.24, quitar la notificacion 
         setTimeout(() => {
             get().hideNotification()
         }, 5000);
     },
-    //Vid 343
+    //V-343,paso 7.19
     hideNotification: () => {
-        //Vid 342
+        //Paso 7.21
         set({
-            //Vid 342
             notification: {
                 text: '',
                 error: false,

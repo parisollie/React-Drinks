@@ -22,7 +22,7 @@ export default function Header() {
     const categories = useAppStore((state) => state.categories)
     //Paso 3.12
     const searchRecipes = useAppStore((state) => state.searchRecipes)
-    //Vid 344
+    //V-344,paso 7.25
     const showNotification = useAppStore((state) => state.showNotification)
 
     //paso 2.17,cuando este listo queremos esa funcion
@@ -43,7 +43,7 @@ export default function Header() {
         e.preventDefault()
         //Validar
         if (Object.values(searchFilters).includes('')) {
-            //Vid 344
+            //Paso 7.26
             showNotification({
                 text: 'Todos los campos son obligatorios',
                 error: true

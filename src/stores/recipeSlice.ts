@@ -29,6 +29,7 @@ export type RecipesSliceType = {
    Paso 2.11,ponemos el  StateCreator nos permite crear el state y especificiar
    el type que tiene el slice
    Paso 2.21, le ponemos el set
+   Paso 6.15,ponemos , FavoritesSliceType, [], [], RecipesSliceType,no se esperan parameteos adicionales
 */
 export const createRecipesSlice: StateCreator<RecipesSliceType & FavoritesSliceType, [], [], RecipesSliceType> = (set) => ({
     //Paso 2.25

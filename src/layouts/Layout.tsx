@@ -7,7 +7,7 @@ import Notification from '../components/Notification'
 
 export default function Layout() {
 
-  //Vid 338 
+  //Paso 6.20 
   const loadFromStorage = useAppStore((state) => state.loadFromStorage)
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function Layout() {
       </main>
       {/**Paso 5.3, ponemos el modal */}
       <Modal />
-
+      {/**Paso 7.10 */}
       <Notification />
     </>
   )

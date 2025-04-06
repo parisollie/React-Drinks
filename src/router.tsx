@@ -2,9 +2,9 @@ import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './layouts/Layout'
 
-//Vid 
+//Vid paso 7.29
 const IndexPage = lazy(() => import('./views/IndexPage'))
-//Vid 345
+//V-345,paso 7.27
 const FavoritesPage = lazy(() => import('./views/FavoritesPage'))
 
 //V-307,paso 1.3,configuramos el react router
@@ -17,6 +17,7 @@ export default function AppRouter() {
         <Route element={<Layout />}>
           {/**Paso 1.5,definimos la pagina principal y element la página que se va a cargar */}
           <Route path='/' element={
+            //Paso 7.28,ponemos el suspense
             <Suspense fallback="Cargando...">
               {/**Paso 1.7, renderizamos la pagina principal */}
               <IndexPage />
