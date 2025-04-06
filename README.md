@@ -1,7 +1,7 @@
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-# Alcoholic beverage search engine, recipes, and AI-powered generation -19
+# Drink Finder, recipes, and AI-powered generation -19
 
 This application contains the following knowledge:
 
